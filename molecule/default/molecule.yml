@@ -26,9 +26,6 @@ platforms:
   - name: client-2
     groups:
       - client
-  - name: consul-install
-    groups:
-      - test
 provisioner:
   name: ansible
   options:

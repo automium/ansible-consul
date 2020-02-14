@@ -1,16 +1,4 @@
 ---
-- name: install and then configure
-  hosts: test
-  roles:
-    - role: ansible-consul
-      consul_version: 1.6.3
-      configure: false
-      install: true
-      consul_configs:
-        main:
-          server: true
-      consul_service_status: "stopped"
-
 - name: run role for server
   hosts: server
   roles:
