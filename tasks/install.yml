@@ -26,11 +26,6 @@
     - "{{ consul_data_dir }}"
     - "{{ consul_user_home }}/bin"
 
-- name: install | check if consul binary exist
-  stat:
-    path: "{{ consul_user_home }}/bin/consul"
-  register: consul_bin
-
 - name: install | Download Consul binary
   unarchive:
     src: "{{ consul_uri }}"
@@ -38,7 +33,6 @@
     remote_src: true
     owner: "{{ consul_user_name }}"
     group: "{{ consul_group_name }}"
-  when: not consul_bin.stat.exists
 
 - name: install | Deploy Consul systemd unit
   template:
